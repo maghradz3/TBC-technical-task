@@ -318,9 +318,20 @@ main {
     margin: 0 auto;
     position: relative;
     overflow: hidden;
+    display: flex;
+    padding: 100px;
+    flex-direction: column;
+    gap: 30px;
     height: 400px;
-    padding: 80px;
+    /* padding: 80px; */
     /* border: 2px solid red; */
+}
+
+.sponsor-slider h1 {
+    font-size: 1.7rem;
+    color: #ffffff;
+    margin-bottom: 30px;
+
 }
 
 .slides-container {
@@ -471,4 +482,77 @@ main {
 .accordion-question.active .arrow {
     transform: rotate(180deg);
     /* Flip arrow */
+}
+
+
+.footer {
+
+    padding: 10vh 18%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(27, 27, 27, 0.911);
+
+    /* justify-content: center; */
+    align-items: start;
+    gap: 30px;
+    /* border: 2px solid red; */
+    color: white;
+}
+
+
+.terms_conditions {
+
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: white;
+}
+
+.footer_contact {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+
+    gap: 40px;
+    color: white;
+    /* border: 2px solid red; */
+}
+
+
+.socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px
+}
+
+.socials_btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    background-color: gray;
+    font-size: 1.5rem;
+}
+
+.footer_contact button {
+    background-color: rgb(43, 180, 243);
+    border: none;
+    outline: none;
+    padding: 8px 40px;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.footer_contact button:hover {
+    background-color: rgba(209, 209, 209, 0.979);
+    color: black;
 }

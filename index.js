@@ -1,60 +1,6 @@
 "use strict";
-const courses = [
-  {
-    id: 1,
-    img: "../images/ios_dev.webp",
-    name: "iOS Development",
-    status: "რეგისტრაცია დასრულებულია",
-  },
-  {
-    id: 2,
-    img: "../images/react.webp",
-    name: "React",
-    status: "რეგისტრაცია დასრულებულია",
-  },
-  {
-    id: 3,
-    img: "../images/python.webp",
-    name: "Intro to Python",
-    status: "რეგისტრაცია დასრულებულია",
-  },
-  {
-    id: 4,
-    img: "../images/adv_python.webp",
-    name: "Advanced Python",
-    status: "რეგისტრაცია დასრულებულია",
-  },
-  {
-    id: 5,
-    img: "../images/cybersec.webp",
-    name: "Advanced Cybersecurity Course",
-    status: "რეგისტრაცია დასრულებულია",
-  },
-  {
-    id: 6,
-    img: "../images/tot.webp",
-    name: "ToT - Training of Trainers",
-    status: "რეგისტრაცია დასრულებულია",
-  },
-  {
-    id: 7,
-    img: "../images/blockchain.webp",
-    name: "Blockchain",
-    status: "რეგისტრაცია დასრულებულია",
-  },
-  {
-    id: 8,
-    img: "../images/devops.webp",
-    name: "DevOps",
-    status: "რეგისტრაცია დასრულებულია",
-  },
-  {
-    id: 9,
-    img: "../images/infoSec.webp",
-    name: "Information Security Governance",
-    status: "რეგისტრაცია დასრულებულია",
-  },
-];
+
+import { courses, faqData } from "./data.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   var navItems = document.querySelectorAll(".nav_items li");
@@ -94,3 +40,94 @@ document.addEventListener("DOMContentLoaded", function () {
     coursesContainer.insertAdjacentHTML("beforeend", cardHTML);
   });
 });
+
+//slider//
+// const sponsorData = [
+//     ["./images/cybersec.wepb", "images/devops.webp", "./images/ios_dev"],
+//     [
+//       "./images/rect.webp",
+//       "./images/adv_python.webp",
+//       "./images/blockchain.webp",
+//     ],
+//     ["./images/tot.webp", "./images/infoSec.webp", "./images/python.webp"],
+//   ];
+
+const slides = document.querySelectorAll(".slide");
+const leftArrow = document.querySelector(".left-arrow");
+const rightArrow = document.querySelector(".right-arrow");
+const dots = document.querySelectorAll(".dot");
+let currentSlide = 0;
+
+function updateSlider() {
+  slides.forEach((slide, index) => {
+    slide.classList.remove("active");
+  });
+  slides[currentSlide].classList.add("active");
+
+  dots.forEach((dot, index) => {
+    dot.classList.toggle("active", index === currentSlide);
+  });
+}
+
+leftArrow.addEventListener("click", () => {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  updateSlider();
+});
+
+rightArrow.addEventListener("click", () => {
+  currentSlide = (currentSlide + 1) % slides.length;
+  updateSlider();
+});
+
+dots.forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    currentSlide = index;
+    updateSlider();
+  });
+});
+
+updateSlider();
+
+////Accordion////
+
+document.addEventListener("DOMContentLoaded", function () {
+  const accordionContainer = document.querySelector(".accordion");
+
+  faqData.forEach((item, index) => {
+    let accordionHTML = `
+            <div class="accordion-item">
+                <button class="accordion-question">
+                    ${item.question}
+                    <span class="arrow">&#9660;</span>
+                </button>
+                <div class="accordion-answer">
+                    <p>${item.answer}</p>
+                </div>
+            </div>
+        `;
+    accordionContainer.insertAdjacentHTML("beforeend", accordionHTML);
+  });
+
+  attachAccordionEvents();
+});
+function attachAccordionEvents() {
+  document.querySelectorAll(".accordion-question").forEach((question) => {
+    question.addEventListener("click", function () {
+      const answer = this.nextElementSibling;
+
+      document.querySelectorAll(".accordion-answer").forEach((otherAnswer) => {
+        if (otherAnswer !== answer) {
+          otherAnswer.style.maxHeight = null;
+          otherAnswer.previousElementSibling.classList.remove("active");
+        }
+      });
+
+      this.classList.toggle("active");
+      if (answer.style.maxHeight) {
+        answer.style.maxHeight = null;
+      } else {
+        answer.style.maxHeight = answer.scrollHeight + "px";
+      }
+    });
+  });
+}

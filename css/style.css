@@ -69,6 +69,7 @@ main {
     object-position: center;
 
 
+
 }
 
 .logo span {
@@ -89,6 +90,13 @@ main {
     left: -20px;
     bottom: 0px;
     font-size: 1rem;
+}
+
+.burger_menu {
+    color: white;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: none;
 }
 
 .nav_items {
@@ -117,50 +125,30 @@ main {
 
 .nav_image {
     margin-top: 12vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     width: viewport;
-    position: relative;
-
-    height: 50vh
-}
 
 
 
-.nav_image img {
-    width: 100%;
-    height: 100%;
-
-    object-position: center;
+    height: 50vh;
+    background-image: url("../images/tbc-nav2.webp");
+    background-size: cover;
+    background-position: center;
 
 }
 
-.nav_image span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 55%;
-    transform: translate(-60%, -50%);
-    color: white;
-    font-size: 2.8rem;
-    vertical-align: baseline;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    line-height: 4rem;
 
 
 
 
-}
 
 .nav_image_text {
-    position: absolute;
-    top: 50%;
-    left: 53%;
-    width: 55%;
-    transform: translate(-60%, -50%);
+
     font-size: 2.8rem;
     color: white;
-
+    margin-left: 20%;
     flex-direction: column;
     display: flex;
 
@@ -477,7 +465,7 @@ main {
 
     cursor: pointer;
     font-size: 1.2rem;
-    padding: 30px 30px;
+    padding: 30px;
     width: 100%;
     border: none;
     text-align: left;
@@ -616,4 +604,268 @@ main {
 .footer_contact button:hover {
     background-color: rgba(209, 209, 209, 0.979);
     color: black;
+}
+
+
+
+@media only screen and (max-width: 1100px) {
+    header {
+        padding: 20px 5%;
+    }
+
+    .nav_image_text {
+        font-size: 2rem;
+        margin-left: 80px;
+    }
+
+    .nav_image_text h2 {
+        font-size: 1.6rem;
+        /* border: 2px solid red; */
+    }
+
+
+
+    .info_article {
+        padding: 6vh 5%;
+    }
+
+    .info_article_text {
+        font-size: 1.5rem;
+    }
+
+
+    /* -----------------course cards section ------------------- */
+
+
+    .courses_section {
+        padding: 6vh 5%;
+    }
+
+    .card {
+        height: 400px;
+    }
+
+
+    .card_content_wrapper {
+        padding: 20px 10px;
+    }
+
+    .card_headline p {
+
+        font-size: 0.9rem;
+
+    }
+
+    .card_button {
+        font-size: 0.9rem;
+    }
+
+    /*--------------------Slider----------------------------*/
+
+    .sponsor-slider {
+        padding: 6vh 5%;
+    }
+
+    .sponsor-slider h1 {
+        font-size: 1.4rem;
+        padding-left: 30px;
+    }
+
+    .img_box {
+
+        width: calc(33.333% - 50px);
+    }
+
+    .slider-arrow {
+        font-size: 1.5rem;
+    }
+
+
+    /* ------------------FAQ--------------------------- */
+
+    .questions_accordion {
+        padding: 6vh 5%;
+    }
+
+
+    /* ------------------Footer--------------------------- */
+
+    .footer {
+        padding: 6vh 8%;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    header {
+        padding: 20px 10px;
+    }
+
+    .fa-x {
+        font-size: 0.8rem;
+    }
+
+    .logo_img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .logo span {
+        font-size: 1.2rem;
+    }
+
+    .nav_items {
+        gap: 20px;
+    }
+
+    .nav_items li {
+        font-size: 0.9rem;
+    }
+
+    .nav_image_text {
+        margin-left: 20px;
+
+    }
+
+    .info_article {
+        gap: 25px;
+    }
+
+    .info_article_text {
+        font-size: 1.2rem;
+        line-height: 2rem;
+    }
+
+    .info_article_link {
+        font-size: 1.2rem;
+    }
+
+    /* -----------------course cards section ------------------- */
+    .course_cards_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sponsor-slider {
+        height: 300px;
+        gap: 10px;
+
+    }
+
+    .questions_accordion_headlineBox {
+        padding: 0 10px;
+
+        font-size: 1.2rem;
+    }
+
+    .questions_accordion_headlineBtn {
+        font-size: 1.2rem;
+    }
+
+    .accordion-question {
+        font-size: 1rem;
+    }
+
+    .accordion-answer {
+        font-size: 0.9rem;
+    }
+}
+
+
+@media only screen and (max-width: 580px) {
+    .nav_items {
+        flex-direction: column;
+        position: absolute;
+        right: -400px;
+        bottom: -300px;
+
+        padding: 50px;
+        background: black;
+        height: 300px;
+        width: 300px;
+        border-bottom-left-radius: 10px;
+
+
+        background-color: rgba(29, 29, 29, 0.925);
+
+        backdrop-filter: blur(0px);
+        margin-top: 250px;
+        transition: transform 0.7s ease-in-out;
+    }
+
+    .activeBar {
+        transform: translateX(-400px);
+    }
+
+    .burger_menu {
+        display: block;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .burger_menu_rotate {
+        transform: rotate(90deg);
+    }
+
+
+
+    .nav_image_text {
+        font-size: 1.5rem;
+    }
+
+    .nav_image_text h2 {
+        font-size: 1.1rem;
+    }
+
+    /* -----------------course cards section ------------------- */
+    .course_cards_container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+
+    .questions_accordion {
+
+        padding: 10vh 10px;
+
+
+        color: white;
+    }
+
+
+    .questions_accordion_headlineBox {
+        padding: 0;
+
+        font-size: 1rem;
+    }
+
+    .questions_accordion_headlineBtn {
+        font-size: 1rem;
+    }
+
+    .accordion-question {
+        font-size: 0.9rem;
+        padding: 20px;
+    }
+
+    /*================= sponsors slider============ */
+    .sponsor-slider h1 {
+        font-size: 1.2rem;
+    }
+
+    .img_box {
+
+        width: calc(33.333% - 10px);
+    }
+
+    /*----------- footer------------- */
+
+    .footer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .footer_contact {
+        align-items: center;
+        gap: 20px;
+    }
 }

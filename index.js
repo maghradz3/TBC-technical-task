@@ -2,6 +2,8 @@
 
 import { courses, faqData, sponsorImages } from "./data.js";
 
+// Nav Items//
+
 document.addEventListener("DOMContentLoaded", function () {
   var navItems = document.querySelectorAll(".nav_items li");
 
@@ -15,6 +17,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// Mobile Nav //
+document.addEventListener("DOMContentLoaded", function () {
+  const navToggle = document.querySelector(".burger_menu");
+  const navItems = document.querySelector(".nav_items");
+
+  navToggle.addEventListener("click", function () {
+    navItems.classList.toggle("activeBar");
+    navToggle.classList.toggle("burger_menu_rotate");
+  });
+});
+
+///Courses Cards///////////
 
 document.addEventListener("DOMContentLoaded", function () {
   const coursesContainer = document.querySelector(".course_cards_container");

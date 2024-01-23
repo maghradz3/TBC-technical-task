@@ -1,3 +1,11 @@
+:root {
+    --primary-color: rgb(73, 192, 247);
+    --secondary-color: rgb(128, 128, 128);
+    --bg-primary-color: rgb(22, 22, 22);
+    --bg-secondary-color: rgb(43, 43, 43);
+    --transition: all 0.2s ease-in-out;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -13,26 +21,25 @@ header {
     right: 0;
     z-index: 10;
 
-    /* background-color: rgb(26, 30, 31) */
-    background-color: rgba(16, 17, 17, 0.7);
+
+    background-color: rgba(29, 29, 29, 0.925);
 
     backdrop-filter: blur(0px);
 
-    -webkit-backdrop-filter: blur(10px);
+
 
 }
 
 body {
-    background-color: rgb(22, 22, 22);
+    background-color: var(--bg-primary-color);
     max-width: viewport;
     width: 100%;
 }
 
 main {
-    /* 
-    padding: 0 15%; */
-    background-color: rgb(43, 43, 43);
-    /* border: 2px solid red; */
+
+    background-color: var(--bg-secondary-color);
+
     margin: 0 auto;
 
 }
@@ -44,7 +51,7 @@ main {
     font-size: 1.2rem;
     color: white;
     width: 30px;
-    /* border: 2px solid red; */
+
     width: 200px;
     gap: 20px;
 }
@@ -96,16 +103,16 @@ main {
     line-height: 1.6rem;
     font-size: 1rem;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: var(--transition)
 }
 
 .nav_items li:hover {
-    color: rgb(73, 192, 247);
+    color: var(--primary-color)
 }
 
 /* Style for active link */
 .nav_items .active {
-    color: rgb(73, 192, 247);
+    color: var(--primary-color)
 }
 
 .nav_image {
@@ -121,7 +128,7 @@ main {
 .nav_image img {
     width: 100%;
     height: 100%;
-    /* object-fit: cover; */
+
     object-position: center;
 
 }
@@ -153,7 +160,7 @@ main {
     transform: translate(-60%, -50%);
     font-size: 2.8rem;
     color: white;
-    /* border: 2px solid red; */
+
     flex-direction: column;
     display: flex;
 
@@ -176,7 +183,7 @@ main {
 
     flex-direction: column;
     gap: 50px;
-    /* border: 2px solid red; */
+
     align-items: start;
 
 
@@ -192,8 +199,8 @@ main {
 
 .info_article_link {
     font-size: 1.3rem;
-    color: rgb(73, 192, 247);
-    transition: all 0.2s ease-in-out;
+    color: var(--primary-color);
+    transition: var(--transition);
     cursor: pointer;
     font-weight: bold;
     letter-spacing: normal;
@@ -202,19 +209,20 @@ main {
 
 .info_article_link:hover {
     color: rgb(170, 170, 170);
-    /* text-decoration: underline; */
+
 
 }
+
+/* -----------------course cards section ------------------- */
 
 .courses_section {
     display: flex;
     padding: 10vh 18%;
+    gap: 30px;
 
     flex-direction: column;
     align-items: start;
-    background-color: rgb(22, 22, 22);
-
-
+    background-color: var(--bg-primary-color)
 }
 
 .courses_section_headline {
@@ -229,13 +237,14 @@ main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    /* padding: 20px; */
+
     margin-top: 20px;
 }
 
 .card {
     background-color: rgba(0, 0, 0, 0);
-    border: 0.5px solid rgb(244, 244, 244);
+
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.836);
     height: 450px;
     text-align: center;
 
@@ -264,10 +273,11 @@ main {
 .card_content_wrapper {
     display: flex;
     flex-direction: column;
-    /* padding: 20px; */
+
+
     align-items: flex-start;
     justify-content: space-between;
-    /* border: 2px solid red; */
+
     height: 65%;
     border-radius: 8px;
     padding: 30px 20px;
@@ -285,13 +295,14 @@ main {
     align-self: flex-start;
 
 
+
 }
 
 .card_button {
     background: transparent;
     outline: none;
     border: none;
-    color: rgb(73, 192, 247);
+    color: var(--primary-color);
     cursor: pointer;
     font-size: 1.1rem;
     font-weight: 600;
@@ -304,7 +315,7 @@ main {
 }
 
 .card_button span {
-    transition: all 0.2s ease-in-out;
+    transition: var(--transition);
 }
 
 .card_button span:hover {
@@ -312,25 +323,27 @@ main {
 }
 
 
-/*Slider*/
+/*--------------------Slider----------------------------*/
 .sponsor-slider {
     width: 100%;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
     display: flex;
-    padding: 100px;
+
+    padding: 40px 100px;
     flex-direction: column;
     gap: 30px;
-    height: 400px;
-    /* padding: 80px; */
-    /* border: 2px solid red; */
+    height: 350px;
+
 }
 
 .sponsor-slider h1 {
     font-size: 1.7rem;
     color: #ffffff;
     margin-bottom: 30px;
+    padding-left: 150px;
+
 
 }
 
@@ -343,32 +356,33 @@ main {
     gap: 30px;
 
 
-    border: 2px solid red;
+
     height: 100px;
 }
 
 .slide {
-    position: absolute;
-    /* border: 2px solid red; */
-    top: 0;
-    left: 0;
-    width: 100%;
     display: flex;
     justify-content: space-around;
     opacity: 0;
     transition: opacity 1s ease-in-out;
-    visibility: hidden;
+    position: absolute;
+    width: 100%;
 }
 
 .slide.active {
     opacity: 1;
-    visibility: visible;
 }
 
 .slide img {
-    width: calc(33.333% - 100px);
+
+    width: 100%;
 
     margin: 10px;
+}
+
+.img_box {
+
+    width: calc(33.333% - 150px);
 }
 
 .slider-controls {
@@ -378,18 +392,30 @@ main {
     bottom: 10px;
 }
 
+.arrows {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .slider-arrow {
     cursor: pointer;
+    background: transparent;
+    border: none;
+    font-size: 3rem;
+    color: rgb(141, 141, 141);
 
 }
 
 .slider-dots {
     display: inline-block;
+
+    text-align: center;
 }
 
 .dot {
-    height: 10px;
-    width: 10px;
+    height: 8px;
+    width: 8px;
     margin: 5px;
     background-color: #bbb;
     border-radius: 50%;
@@ -402,15 +428,18 @@ main {
 }
 
 
+/* ------------------FAQ--------------------------- */
+
+
 .questions_accordion {
-    background-color: rgb(22, 22, 22);
+    background-color: var(--bg-primary-color);
     padding: 10vh 18%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;
     gap: 30px;
-    /* border: 2px solid red; */
+
     color: white;
 }
 
@@ -425,21 +454,27 @@ main {
 
 .questions_accordion_headlineBtn {
     font-size: 1.5rem;
-    color: rgb(73, 192, 247);
+    color: var(--primary-color);
     font-weight: bold;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.questions_accordion_headlineBtn:hover {
+    color: rgb(170, 170, 170);
 }
 
 .accordion {
-    background-color: rgb(22, 22, 22);
-    /* border: 2px solid red; */
+    background-color: var(--bg-primary-color);
+
 }
 
 .accordion-question {
 
     color: white;
     position: relative;
-    background-color: rgb(22, 22, 22);
-    /* border: 2px solid red; */
+    background-color: var(--bg-primary-color);
+
     cursor: pointer;
     font-size: 1.2rem;
     padding: 30px 30px;
@@ -470,6 +505,7 @@ main {
     padding: 0 30px;
     font-size: 1rem;
     line-height: 1.8rem;
+    white-space: pre-line;
 
     overflow: hidden;
     transition: max-height 0.5s ease-out;
@@ -481,10 +517,10 @@ main {
 
 .accordion-question.active .arrow {
     transform: rotate(180deg);
-    /* Flip arrow */
+
 }
 
-
+/* ------------------Footer--------------------------- */
 .footer {
 
     padding: 10vh 18%;
@@ -493,10 +529,10 @@ main {
     align-items: center;
     background-color: rgba(27, 27, 27, 0.911);
 
-    /* justify-content: center; */
+
     align-items: start;
     gap: 30px;
-    /* border: 2px solid red; */
+
     color: white;
 }
 
@@ -510,6 +546,16 @@ main {
     color: white;
 }
 
+.terms_contidionts_text {
+    transition: var(--transition);
+    cursor: pointer;
+
+}
+
+.terms_contidionts_text:hover {
+    color: rgb(185, 190, 192);
+}
+
 .footer_contact {
     display: flex;
     flex-direction: column;
@@ -517,7 +563,7 @@ main {
 
     gap: 40px;
     color: white;
-    /* border: 2px solid red; */
+
 }
 
 
@@ -538,6 +584,20 @@ main {
     border-radius: 50%;
     background-color: gray;
     font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.socials_btn:nth-child(1):hover {
+    background-color: rgb(10, 124, 230);
+    transform: scale(1.1);
+    color: white;
+}
+
+.socials_btn:nth-child(2):hover {
+    background-color: rgb(243, 39, 39);
+    transform: scale(1.1);
+    color: white;
 }
 
 .footer_contact button {
@@ -549,7 +609,8 @@ main {
     color: #ffffff;
     font-size: 1.1rem;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: var(--transition);
+
 }
 
 .footer_contact button:hover {

@@ -1,6 +1,6 @@
 "use strict";
 
-import { courses, faqData } from "./data.js";
+import { courses, faqData, sponsorImages } from "./data.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   var navItems = document.querySelectorAll(".nav_items li");
@@ -41,52 +41,73 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-//slider//
-// const sponsorData = [
-//     ["./images/cybersec.wepb", "images/devops.webp", "./images/ios_dev"],
-//     [
-//       "./images/rect.webp",
-//       "./images/adv_python.webp",
-//       "./images/blockchain.webp",
-//     ],
-//     ["./images/tot.webp", "./images/infoSec.webp", "./images/python.webp"],
-//   ];
+///Sliderr/////
 
-const slides = document.querySelectorAll(".slide");
-const leftArrow = document.querySelector(".left-arrow");
-const rightArrow = document.querySelector(".right-arrow");
-const dots = document.querySelectorAll(".dot");
 let currentSlide = 0;
+const totalSlides = sponsorImages.length;
+const sliderContainer = document.querySelector(".slides-container");
+const dotsContainer = document.querySelector(".slider-dots");
 
-function updateSlider() {
-  slides.forEach((slide, index) => {
-    slide.classList.remove("active");
-  });
-  slides[currentSlide].classList.add("active");
-
-  dots.forEach((dot, index) => {
-    dot.classList.toggle("active", index === currentSlide);
+function createSlides() {
+  sponsorImages.forEach((slide, index) => {
+    let slideHTML = `<div class="slide${index === 0 ? " active" : ""}">`;
+    slide.forEach((image) => {
+      slideHTML += `<div class="img_box"><img src="${image}" alt="Sponsor" /></div>`;
+    });
+    slideHTML += `</div>`;
+    sliderContainer.insertAdjacentHTML("beforeend", slideHTML);
   });
 }
 
-leftArrow.addEventListener("click", () => {
-  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-  updateSlider();
-});
+function createDots() {
+  for (let i = 0; i < totalSlides; i++) {
+    const dotHTML = `<span class="dot${i === 0 ? " active" : ""}"></span>`;
+    dotsContainer.insertAdjacentHTML("beforeend", dotHTML);
+  }
+}
 
-rightArrow.addEventListener("click", () => {
-  currentSlide = (currentSlide + 1) % slides.length;
-  updateSlider();
-});
+function changeSlide(slideIndex) {
+  document.querySelectorAll(".slide").forEach((slide, index) => {
+    slide.classList.remove("active");
+    if (index === slideIndex) {
+      slide.classList.add("active");
+    }
+  });
+  updateDots(slideIndex);
+}
 
-dots.forEach((dot, index) => {
-  dot.addEventListener("click", () => {
-    currentSlide = index;
-    updateSlider();
+function updateDots(slideIndex) {
+  document.querySelectorAll(".dot").forEach((dot, index) => {
+    dot.classList.remove("active");
+    if (index === slideIndex) {
+      dot.classList.add("active");
+    }
+  });
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % totalSlides;
+  changeSlide(currentSlide);
+}
+
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+  changeSlide(currentSlide);
+}
+
+document.querySelector(".right-arrow").addEventListener("click", nextSlide);
+document.querySelector(".left-arrow").addEventListener("click", prevSlide);
+
+document.addEventListener("DOMContentLoaded", () => {
+  createSlides();
+  createDots();
+  document.querySelectorAll(".dot").forEach((dot, index) => {
+    dot.addEventListener("click", () => changeSlide(index));
   });
 });
 
-updateSlider();
+// Auto slide
+setInterval(nextSlide, 5000); // Change slide every 5 seconds
 
 ////Accordion////
 

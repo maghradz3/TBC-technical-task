@@ -31,6 +31,7 @@ header {
 }
 
 body {
+
     background-color: var(--bg-primary-color);
     font-family: Arial, Helvetica, sans-serif;
     /* max-width: viewport; */
@@ -515,6 +516,7 @@ main {
 .footer {
 
     padding: 10vh 18%;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -537,13 +539,13 @@ main {
     color: white;
 }
 
-.terms_contidionts_text {
+.terms_conditions_text {
     transition: var(--transition);
     cursor: pointer;
 
 }
 
-.terms_contidionts_text:hover {
+.terms_conditions_text:hover {
     color: rgb(185, 190, 192);
 }
 
@@ -608,6 +610,8 @@ main {
     background-color: rgba(209, 209, 209, 0.979);
     color: black;
 }
+
+
 
 
 

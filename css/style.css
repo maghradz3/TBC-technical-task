@@ -24,7 +24,7 @@ header {
 
     background-color: rgba(29, 29, 29, 0.925);
 
-    backdrop-filter: blur(0px);
+    /* backdrop-filter: blur(5px); */
 
 
 
@@ -32,15 +32,17 @@ header {
 
 body {
     background-color: var(--bg-primary-color);
-    max-width: viewport;
-    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    /* max-width: viewport; */
+    /* width: 100%; */
 }
 
 main {
 
+
     background-color: var(--bg-secondary-color);
 
-    margin: 0 auto;
+    /* margin: 0 auto; */
 
 }
 
@@ -123,7 +125,7 @@ main {
     color: var(--primary-color)
 }
 
-.nav_image {
+.main_image {
     margin-top: 12vh;
     display: flex;
     justify-content: flex-start;
@@ -144,7 +146,7 @@ main {
 
 
 
-.nav_image_text {
+.main_image_text {
 
     font-size: 2.8rem;
     color: white;
@@ -152,7 +154,8 @@ main {
     flex-direction: column;
     display: flex;
 
-    font-weight: bolder;
+
+    font-weight: bold;
 
     align-items: start;
     gap: 15px;
@@ -160,7 +163,7 @@ main {
 
 }
 
-.nav_image_text h2 {
+.main_image_text h2 {
     font-size: 2.6rem;
 }
 
@@ -182,7 +185,7 @@ main {
     color: white;
     line-height: 2.5rem;
 
-    letter-spacing: normal;
+
 }
 
 .info_article_link {
@@ -191,7 +194,7 @@ main {
     transition: var(--transition);
     cursor: pointer;
     font-weight: bold;
-    letter-spacing: normal;
+
 
 }
 
@@ -577,13 +580,13 @@ main {
 }
 
 .socials_btn:nth-child(1):hover {
-    background-color: rgb(10, 124, 230);
+    background-color: rgb(41, 124, 201);
     transform: scale(1.1);
     color: white;
 }
 
 .socials_btn:nth-child(2):hover {
-    background-color: rgb(243, 39, 39);
+    background-color: rgb(228, 69, 69);
     transform: scale(1.1);
     color: white;
 }
@@ -613,12 +616,12 @@ main {
         padding: 20px 5%;
     }
 
-    .nav_image_text {
+    .main_image_text {
         font-size: 2rem;
         margin-left: 80px;
     }
 
-    .nav_image_text h2 {
+    .main_image_text h2 {
         font-size: 1.6rem;
         /* border: 2px solid red; */
     }
@@ -722,7 +725,7 @@ main {
         font-size: 0.9rem;
     }
 
-    .nav_image_text {
+    .main_image_text {
         margin-left: 20px;
 
     }
@@ -745,11 +748,14 @@ main {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    /* -----------------slider ------------------- */
     .sponsor-slider {
         height: 300px;
         gap: 10px;
 
     }
+
+    /* -----------------FAQ accordion ------------------- */
 
     .questions_accordion_headlineBox {
         padding: 0 10px;
@@ -807,18 +813,30 @@ main {
 
 
 
-    .nav_image_text {
+    .main_image_text {
         font-size: 1.5rem;
     }
 
-    .nav_image_text h2 {
+    .main_image_text h2 {
         font-size: 1.1rem;
     }
 
     /* -----------------course cards section ------------------- */
+    .courses_section {
+        padding: 3vh 13%;
+    }
+
     .course_cards_container {
         grid-template-columns: repeat(1, 1fr);
+
     }
+
+    /* -----------------FAQ Accordion------------------- */
+    .questions_accordion_headlineBox {
+        flex-direction: column;
+        gap: 10px;
+    }
+
 
 
     .questions_accordion {
@@ -854,6 +872,9 @@ main {
 
         width: calc(33.333% - 10px);
     }
+
+
+
 
     /*----------- footer------------- */
 

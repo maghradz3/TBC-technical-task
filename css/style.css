@@ -31,7 +31,7 @@ header {
 }
 
 body {
-
+    position: relative;
     background-color: var(--bg-primary-color);
     font-family: Arial, Helvetica, sans-serif;
     /* max-width: viewport; */
@@ -46,6 +46,8 @@ main {
     /* margin: 0 auto; */
 
 }
+
+
 
 .logo {
     display: flex;
@@ -545,6 +547,69 @@ main {
 
 }
 
+.terms_tab {
+    position: fixed;
+    z-index: 11;
+    top: 0;
+    right: -50%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    overflow-y: auto;
+    padding: 70px 50px 150px 50px;
+    color: var(--secondary-color);
+    height: 100vh;
+    background-color: var(--bg-secondary-color);
+    transition: transform 0.5s ease-in-out;
+}
+
+.terms_tab h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+
+}
+
+.terms_tab h2 {
+    font-size: 1.1rem;
+    font-weight: bold;
+
+}
+
+.terms_btn_close {
+    width: 100%;
+
+    cursor: pointer;
+    padding: 20px 0;
+    border-radius: 8px;
+    background-color: var(--secondary-color);
+    transition: var(--transition);
+
+}
+
+.terms_btn_close:hover {
+    background-color: var(--primary-color)
+}
+
+
+
+.xBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2.5rem;
+
+    color: var(--secondary-color);
+    cursor: pointer;
+
+
+}
+
+.termsTab_active {
+    transform: translateX(-100%);
+}
+
 .terms_conditions_text:hover {
     color: rgb(185, 190, 192);
 }
@@ -778,6 +843,28 @@ main {
     .accordion-answer {
         font-size: 0.9rem;
     }
+
+    /* -----------------FAQ accordion ------------------- */
+
+    .terms_tab {
+        padding: 70px 20px;
+
+
+    }
+
+    .terms_tab {
+        font-size: 0.9rem;
+    }
+
+    .terms_tab h1 {
+        font-size: 1.2rem;
+    }
+
+    .terms_tab h2 {
+        font-size: 1.0rem;
+    }
+
+
 }
 
 
@@ -892,5 +979,23 @@ main {
     .footer_contact {
         align-items: center;
         gap: 20px;
+    }
+
+    .terms_tab {
+        padding: 50px 10px;
+
+
+    }
+
+    .terms_tab {
+        font-size: 0.8rem;
+    }
+
+    .terms_tab h1 {
+        font-size: 1.1rem;
+    }
+
+    .terms_tab h2 {
+        font-size: 0.9rem;
     }
 }
